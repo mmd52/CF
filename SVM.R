@@ -13,6 +13,8 @@ test<--train
 training_data<-ndat[train,]
 testing_data<-ndat[test,]
 
+mod<-lm(Dispense ~ ., data = training_data)
+rmse(testing_data[,7],predict(mod, testing_data[,-7]))
 
 ##======================SIMPLE SVM
 model1.svm <- svm(Dispense ~ ., data = training_data)
